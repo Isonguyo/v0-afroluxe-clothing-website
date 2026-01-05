@@ -28,7 +28,7 @@ export function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-         <img src="/Cloth-logo.jfif"alt="AFROLUXE"className="h-10 max-w-[160px] w-auto object-contain"/>
+         <img src="/cloth-logo(1).jfif"alt="AFROLUXE"className="h-10 max-w-[180px] w-auto object-contain"/>
           </Link>
 
           {/* Desktop Navigation */}
