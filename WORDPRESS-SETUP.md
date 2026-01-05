@@ -33,7 +33,7 @@ Navigate to **CPT UI → Add/Edit Post Types** and create the following:
 
 #### 1. Collections
 
-```
+\`\`\`
 Post Type Slug: collections
 Plural Label: Collections
 Singular Label: Collection
@@ -45,11 +45,11 @@ Settings:
 - REST Base: collections
 - Supports: title, editor, thumbnail, excerpt
 - Taxonomies: categories
-```
+\`\`\`
 
 #### 2. Services
 
-```
+\`\`\`
 Post Type Slug: services
 Plural Label: Services
 Singular Label: Service
@@ -60,11 +60,11 @@ Settings:
 - Show in REST: true
 - REST Base: services
 - Supports: title, editor
-```
+\`\`\`
 
 #### 3. Testimonials
 
-```
+\`\`\`
 Post Type Slug: testimonials
 Plural Label: Testimonials
 Singular Label: Testimonial
@@ -75,13 +75,13 @@ Settings:
 - Show in REST: true
 - REST Base: testimonials
 - Supports: title, editor
-```
+\`\`\`
 
 ### Alternative: Code in functions.php
 
 Add this to your theme's `functions.php`:
 
-```php
+\`\`\`php
 // Register Collections Post Type
 function afroluxe_register_collections() {
     $args = array(
@@ -123,7 +123,7 @@ function afroluxe_register_testimonials() {
     register_post_type('testimonials', $args);
 }
 add_action('init', 'afroluxe_register_testimonials');
-```
+\`\`\`
 
 ## Step 3: Create ACF Field Groups
 
@@ -189,7 +189,7 @@ Fields:
 
 Add this to your theme's `functions.php`:
 
-```php
+\`\`\`php
 // Expose ACF fields in REST API
 add_action('rest_api_init', function () {
     // Collections
@@ -220,13 +220,13 @@ add_action('rest_api_init', function () {
         },
     ));
 });
-```
+\`\`\`
 
 ## Step 5: Create Form Submission Endpoints
 
 Add custom REST API endpoints for form submissions:
 
-```php
+\`\`\`php
 // Contact Form Endpoint
 add_action('rest_api_init', function () {
     register_rest_route('wp/v2', '/contact-form', array(
@@ -325,13 +325,13 @@ function handle_booking_form($request) {
         return new WP_Error('booking_failed', 'Failed to create booking', array('status' => 500));
     }
 }
-```
+\`\`\`
 
 ## Step 6: Enable CORS (if needed)
 
 If your Next.js frontend is on a different domain:
 
-```php
+\`\`\`php
 // Enable CORS for REST API
 add_action('rest_api_init', function () {
     remove_filter('rest_pre_serve_request', 'rest_send_cors_headers');
@@ -343,20 +343,20 @@ add_action('rest_api_init', function () {
         return $value;
     });
 }, 15);
-```
+\`\`\`
 
 ## Step 7: Test REST API Endpoints
 
 Test your endpoints using a tool like Postman or browser:
 
-```
+\`\`\`
 GET https://your-site.com/wp-json/wp/v2/collections
 GET https://your-site.com/wp-json/wp/v2/services
 GET https://your-site.com/wp-json/wp/v2/testimonials
 GET https://your-site.com/wp-json/wp/v2/posts
 POST https://your-site.com/wp-json/wp/v2/contact-form
 POST https://your-site.com/wp-json/wp/v2/bookings
-```
+\`\`\`
 
 ## Step 8: Populate Content
 

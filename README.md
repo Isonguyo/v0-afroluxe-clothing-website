@@ -11,7 +11,7 @@ A production-ready Next.js website for Afroluxe Clothing, designed to integrate 
 
 ## Project Structure
 
-```
+\`\`\`
 afroluxe-clothing/
 ├── app/                      # Next.js App Router pages
 │   ├── page.tsx             # Home page
@@ -33,7 +33,7 @@ afroluxe-clothing/
 │   ├── mock-data.ts         # Development mock data
 │   └── utils.ts             # Utility functions
 └── public/                  # Static assets & images
-```
+\`\`\`
 
 ## Features
 
@@ -100,7 +100,7 @@ Install Advanced Custom Fields (ACF) plugin and create field groups for:
 
 The frontend expects these endpoints:
 
-```
+\`\`\`
 GET /wp-json/wp/v2/collections
 GET /wp-json/wp/v2/collections?slug={slug}
 GET /wp-json/wp/v2/posts
@@ -111,27 +111,27 @@ GET /wp-json/wp/v2/pages?slug={slug}
 GET /wp-json/wp/v2/menus/{menu-id}
 POST /wp-json/wp/v2/contact-form
 POST /wp-json/wp/v2/bookings
-```
+\`\`\`
 
 ### Environment Variables
 
 Create a `.env.local` file:
 
-```
+\`\`\`
 NEXT_PUBLIC_WORDPRESS_API_URL=https://your-wordpress-site.com/wp-json/wp/v2
-```
+\`\`\`
 
 ## Getting Started
 
 ### Development
 
-```bash
+\`\`\`bash
 # Install dependencies
 npm install
 
 # Run development server
 npm run dev
-```
+\`\`\`
 
 Open [http://localhost:3000](http://localhost:3000) to view the site.
 
@@ -168,13 +168,13 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 Edit `app/globals.css` to update color tokens:
 
-```css
+\`\`\`css
 :root {
   --primary: oklch(0.35 0.15 290);    /* Deep purple */
   --accent: oklch(0.75 0.12 80);      /* Gold */
   /* ... other tokens */
 }
-```
+\`\`\`
 
 ### Adding New Pages
 
@@ -186,13 +186,13 @@ Edit `app/globals.css` to update color tokens:
 
 ### Vercel (Recommended)
 
-```bash
+\`\`\`bash
 # Install Vercel CLI
 npm i -g vercel
 
 # Deploy
 vercel
-```
+\`\`\`
 
 Add environment variables in Vercel dashboard.
 
@@ -200,10 +200,10 @@ Add environment variables in Vercel dashboard.
 
 Build for production:
 
-```bash
+\`\`\`bash
 npm run build
 npm start
-```
+\`\`\`
 
 ## WordPress Plugins Recommended
 
