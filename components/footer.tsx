@@ -57,15 +57,15 @@ export function Footer() {
           <div>
             <h4 className="text-sm uppercase tracking-wider mb-4 font-mono">Contact</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li>Lagos, Nigeria</li>
+              <li>Cross River, Nigeria</li>
               <li>
                 <a href="mailto:hello@afroluxe.com" className="hover:text-foreground transition-colors">
-                  hello@afroluxe.com
+                 favourezekiel@gmail.com
                 </a>
               </li>
               <li>
-                <a href="tel:+2341234567890" className="hover:text-foreground transition-colors">
-                  +234 123 456 7890
+                <a href="tel:+234 702 502 4267" className="hover:text-foreground transition-colors">
+                  +234 702 502 4267
                 </a>
               </li>
             </ul>
