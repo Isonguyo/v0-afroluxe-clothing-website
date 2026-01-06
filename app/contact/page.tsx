@@ -97,8 +97,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-mono text-sm uppercase tracking-wider mb-2">Phone</h3>
-                    <a href="tel:+2341234567890" className="text-foreground/80 hover:text-primary transition-colors">
-                      +234 123 456 7890
+                    <a href="tel:+234 702 502 4267" className="text-foreground/80 hover:text-primary transition-colors">
+                      +234 702 502 4267
                     </a>
                   </div>
                 </div>
@@ -110,7 +110,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-mono text-sm uppercase tracking-wider mb-2">WhatsApp</h3>
                     <a
-                      href="https://wa.me/2341234567890"
+                      href="https://wa.me/2347025024267"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-foreground/80 hover:text-primary transition-colors"
@@ -125,11 +125,11 @@ export default function ContactPage() {
                     <MapPin size={20} className="text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-mono text-sm uppercase tracking-wider mb-2">Atelier</h3>
+                    <h3 className="font-mono text-sm uppercase tracking-wider mb-2">Marian</h3>
                     <p className="text-foreground/80">
-                      Victoria Island
+                     Calabar Municipal
                       <br />
-                      Lagos, Nigeria
+                      Cross River, Nigeria
                     </p>
                   </div>
                 </div>
