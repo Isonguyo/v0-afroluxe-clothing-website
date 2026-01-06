@@ -57,19 +57,17 @@ export default function AboutPage() {
             </div>
             <div>
               <p className="text-sm font-mono uppercase tracking-wider text-accent mb-4">Creative Director</p>
-              <h2 className="text-4xl md:text-5xl font-serif mb-6">Adaeze Nwankwo</h2>
+              <h2 className="text-4xl md:text-5xl font-serif mb-6">Favour Ezekiel</h2>
               <div className="space-y-4 text-foreground/80 leading-relaxed">
                 <p>
-                  Adaeze Nwankwo is a visionary designer whose work has been celebrated on international runways from
-                  Paris to New York. With a degree in Fashion Design from Central Saint Martins and roots deep in
-                  Nigerian textile traditions, she bridges two worlds with effortless grace.
+                 Favour Ezekiel is an emerging designer turning heads with her innovative style. Rooted in Nigeria’s rich textile traditions, she brings a fresh perspective to fashion, blending cultural heritage with contemporary flair.
                 </p>
                 <p>
                   Her design philosophy centers on empowerment through dress—creating garments that make the wearer feel
                   not just beautiful, but powerful, confident, and connected to a larger cultural narrative.
                 </p>
                 <p>
-                  "Fashion is more than fabric and form," Adaeze says. "It's a vehicle for storytelling, for preserving
+                  "Fashion is more than fabric and form," Favour says. "It's a vehicle for storytelling, for preserving
                   heritage, and for challenging the world's perception of African luxury."
                 </p>
               </div>
