@@ -25,19 +25,19 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/cloth-logo(1).jfif",
+        url: "/cloth-logo(3).jfif",
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/cloth-logo(1).jfif",
+        url: "/cloth-logo(3).jfif",
         media: "(prefers-color-scheme: dark)",
       },
       {
-        url: "/cloth-logo(1).jfif",
+        url: "/cloth-logo(3).jfif",
         type: "image/svg+xml",
       },
     ],
-    apple: "/cloth-logo(1).jfif",
+    apple: "/cloth-logo(3).jfif",
   },
 }
 
