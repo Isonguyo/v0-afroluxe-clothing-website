@@ -125,7 +125,7 @@ export default function ContactPage() {
                     <MapPin size={20} className="text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-mono text-sm uppercase tracking-wider mb-2">Marian</h3>
+                    <h3 className="font-mono text-sm uppercase tracking-wider mb-2">Atelier</h3>
                     <p className="text-foreground/80">
                      Calabar Municipal
                       <br />
