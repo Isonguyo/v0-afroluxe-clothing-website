@@ -50,7 +50,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative aspect-[4/5] overflow-hidden bg-background">
               <img
-                src="/african-fashion-designer-portrait-elegant-studio.jpg"
+                src="/afroluxe.jfif"
                 alt="Designer Portrait"
                 className="w-full h-full object-cover"
               />
