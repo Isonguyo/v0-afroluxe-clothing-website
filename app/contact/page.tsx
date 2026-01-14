@@ -34,7 +34,7 @@ export default function ContactPage() {
 
     try {
       const response = await fetch(
-        "http://afroluxe.infinityfree.me/wp-json/afroluxe/v1/contact",
+        "https://afroluxe.infinityfree.me/wp-json/afroluxe/v1/contact",
         {
           method: "POST",
           headers: {
