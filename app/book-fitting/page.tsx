@@ -32,7 +32,7 @@ export default function BookFittingPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
-    const whatsappNumber = "2347025024267" // no +
+    const whatsappNumber = "2347012268966" // no +
 
     const message = `
 New Fitting Request
