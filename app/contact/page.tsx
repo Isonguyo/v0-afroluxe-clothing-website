@@ -27,7 +27,7 @@ export default function ContactPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
-    const whatsappNumber = "2347012268966" // NO + sign
+    const whatsappNumber = "2347025024267" // NO + sign
 
     const text = `
 New Contact Message
