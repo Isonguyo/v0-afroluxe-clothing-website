@@ -24,17 +24,27 @@ interface Collection {
 export default function LookbookPage() {
   const [collections, setCollections] = useState<Collection[]>([])
   const [selectedCategory, setSelectedCategory] = useState("All")
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    fetch("http://afroluxe.infinityfree.me/wp-json/wp/v2/collections?per_page=100&_embed")
-      .then((res) => res.json())
+    fetch(
+      "https://afroluxe.infinityfree.me/wp-json/wp/v2/collections?per_page=100&_embed"
+    )
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch collections")
+        return res.json()
+      })
       .then((data) => setCollections(data))
-      .catch(console.error)
+      .catch((err) => setError(err.message))
+      .finally(() => setLoading(false))
   }, [])
 
   const categories = [
     "All",
-    ...Array.from(new Set(collections.map((c) => c.acf?.category).filter(Boolean))),
+    ...Array.from(
+      new Set(collections.map((c) => c.acf?.category).filter(Boolean))
+    ),
   ]
 
   const filtered =
@@ -49,7 +59,8 @@ export default function LookbookPage() {
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-serif mb-4">Lookbook</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Explore our curated collections of contemporary African luxury fashion
+            Explore our curated collections of contemporary African luxury
+            fashion
           </p>
         </div>
       </section>
@@ -70,43 +81,57 @@ export default function LookbookPage() {
         </div>
       </section>
 
+      {/* Loading / Error */}
+      {loading && (
+        <p className="text-center py-16 text-lg font-medium">
+          Loading collections...
+        </p>
+      )}
+      {error && (
+        <p className="text-center py-16 text-lg font-medium text-red-500">
+          {error}
+        </p>
+      )}
+
       {/* Grid */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filtered.map((collection) => {
-            const image =
-              collection._embedded?.["wp:featuredmedia"]?.[0]?.source_url
+      {!loading && !error && (
+        <section className="py-16 px-4">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filtered.map((collection) => {
+              const image =
+                collection._embedded?.["wp:featuredmedia"]?.[0]?.source_url
 
-            return (
-              <Link
-                key={collection.id}
-                href={`/lookbook/${collection.slug}`}
-                className="group"
-              >
-                <div className="aspect-[3/4] bg-muted overflow-hidden mb-4">
-                  <img
-                    src={image || "/placeholder.svg"}
-                    alt={collection.title.rendered}
-                    className="w-full h-full object-cover group-hover:scale-105 transition"
-                  />
-                </div>
+              return (
+                <Link
+                  key={collection.id}
+                  href={`/lookbook/${collection.slug}`}
+                  className="group"
+                >
+                  <div className="aspect-[3/4] bg-muted overflow-hidden mb-4">
+                    <img
+                      src={image || "/placeholder.svg"}
+                      alt={collection.title.rendered}
+                      className="w-full h-full object-cover group-hover:scale-105 transition"
+                    />
+                  </div>
 
-                <h3 className="text-2xl font-serif mb-2">
-                  {collection.title.rendered}
-                </h3>
+                  <h3 className="text-2xl font-serif mb-2">
+                    {collection.title.rendered}
+                  </h3>
 
-                <p className="text-sm text-muted-foreground mb-2">
-                  {collection.acf?.short_description}
-                </p>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    {collection.acf?.short_description}
+                  </p>
 
-                <p className="text-xs font-mono uppercase text-accent">
-                  {collection.acf?.category}
-                </p>
-              </Link>
-            )
-          })}
-        </div>
-      </section>
+                  <p className="text-xs font-mono uppercase text-accent">
+                    {collection.acf?.category}
+                  </p>
+                </Link>
+              )
+            })}
+          </div>
+        </section>
+      )}
     </main>
   )
 }
