@@ -1,1 +1,13 @@
+[[redirects]]
+  from = "http://afroluxe-clothing.netlify.app/*"
+  to = "https://afroluxe-clothing.netlify.app/:splat"
+  status = 301
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type"
 
