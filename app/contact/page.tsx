@@ -17,26 +17,47 @@ import { Mail, Phone, MapPin, MessageCircle } from "lucide-react"
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
-    phone: "",
-    subject: "",
+@@ -17,95 +23,270 @@
     message: "",
   })
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }))
+  }
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<
     "idle" | "success" | "error"
   >("idle")
 
+  const handleSubmit = (e: React.FormEvent) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
     setSubmitStatus("idle")
 
+    const whatsappNumber = "2347025024267" // NO + sign
     try {
       // Simulated API call
       await new Promise((resolve) => setTimeout(resolve, 1500))
 
+    const text = `
+New Contact Message
+
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Subject: ${formData.subject}
+
+Message:
+${formData.message}
+    `
+
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+      text.trim()
+    )}`
       setSubmitStatus("success")
       setFormData({
         name: "",
@@ -52,6 +73,7 @@ export default function ContactPage() {
     }
   }
 
+    window.open(whatsappURL, "_blank")
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -66,6 +88,9 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="py-16 px-4 bg-muted">
         <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-5xl md:text-7xl font-serif mb-4">Contact Us</h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            We would love to hear from you. Reach out for inquiries or collaborations.
           <h1 className="text-5xl md:text-7xl font-serif mb-4">
             Contact Us
           </h1>
@@ -77,6 +102,15 @@ export default function ContactPage() {
       </section>
 
       <section className="py-24 px-4">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div>
+            <h2 className="text-3xl font-serif mb-8">Get in Touch</h2>
+
+            <div className="space-y-8">
+              <div className="flex gap-4">
+                <Mail className="text-primary" />
+                <a href="mailto:hello@afroluxe.com">hello@afroluxe.com</a>
+              </div>
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Contact Information */}
@@ -85,6 +119,10 @@ export default function ContactPage() {
                 Get in Touch
               </h2>
 
+              <div className="flex gap-4">
+                <Phone className="text-primary" />
+                <a href="tel:+2347025024267">+234 702 502 4267</a>
+              </div>
               <div className="space-y-8 mb-12">
                 {/* Email */}
                 <div className="flex gap-4">
@@ -122,6 +160,11 @@ export default function ContactPage() {
                   </div>
                 </div>
 
+              <div className="flex gap-4">
+                <MessageCircle className="text-primary" />
+                <a href="https://wa.me/2347025024267" target="_blank">
+                  Chat with us
+                </a>
                 {/* WhatsApp */}
                 <div className="flex gap-4">
                   <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center">
@@ -160,6 +203,9 @@ export default function ContactPage() {
                 </div>
               </div>
 
+              <div className="flex gap-4">
+                <MapPin className="text-primary" />
+                <span>Calabar Municipal, Cross River, Nigeria</span>
               {/* Showroom Hours */}
               <div className="bg-muted p-8 border border-border">
                 <h3 className="text-xl font-serif mb-4">
@@ -193,7 +239,10 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
+          </div>
 
+          <div>
+            <h2 className="text-3xl font-serif mb-8">Send us a Message</h2>
             {/* Contact Form */}
             <div>
               <h2 className="text-3xl font-serif mb-8">
@@ -213,6 +262,12 @@ export default function ContactPage() {
                   />
                 </div>
 
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <Input name="name" placeholder="Name *" required onChange={handleChange} />
+              <Input name="email" type="email" placeholder="Email *" required onChange={handleChange} />
+              <Input name="phone" placeholder="Phone" onChange={handleChange} />
+              <Input name="subject" placeholder="Subject *" required onChange={handleChange} />
+              <Textarea name="message" rows={6} placeholder="Message *" required onChange={handleChange} />
                 <div>
                   <label className="block text-sm font-mono mb-2">
                     Email *
@@ -226,6 +281,10 @@ export default function ContactPage() {
                   />
                 </div>
 
+              <Button type="submit" className="w-full">
+                Send via WhatsApp
+              </Button>
+            </form>
                 <div>
                   <label className="block text-sm font-mono mb-2">
                     Phone
