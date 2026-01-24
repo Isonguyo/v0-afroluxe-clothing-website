@@ -32,7 +32,7 @@ export default function LookbookPage() {
   const [error, setError] = useState(false)
 
   useEffect(() => {
-    fetch("http://afroluxe.infinityfree.me/wp-json/wp/v2/collections?per_page=100")
+    fetch("https://afroluxe.infinityfree.me/wp-json/wp/v2/collections?per_page=100")
       .then((res) => {
         if (!res.ok) throw new Error("Fetch failed")
         return res.json()
