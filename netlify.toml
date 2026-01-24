@@ -1,13 +1,19 @@
+# -------------------------------
+# Netlify Configuration
+# -------------------------------
+
+#  Proxy all /api/* requests to your WordPress site
 [[redirects]]
-  from = "http://afroluxe-clothing.netlify.app/*"
-  to = "https://afroluxe-clothing.netlify.app/:splat"
-  status = 301
+  from = "/api/*"
+  to = "https://afroluxe.infinityfree.me/:splat"
+  status = 200
   force = true
 
+#  Optional: Basic security headers for all routes
 [[headers]]
   for = "/*"
   [headers.values]
-    Access-Control-Allow-Origin = "*"
-    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
-    Access-Control-Allow-Headers = "Content-Type"
-
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
